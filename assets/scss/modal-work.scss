@@ -1,0 +1,144 @@
+.modal-work {
+  display: flex;
+  height: 100%;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__preview {
+    //width: 65%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    padding-left: 10px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    > img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      max-height: 81vh;
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 50px;
+      height: 370px;
+      width: auto;
+      & > img {
+        width: 80%;
+        min-width: 282px;
+      }
+      //display: none;
+    }
+  }
+
+  &__photo {
+    //height: 90%;
+    padding: 50px 50px 10px 50px;
+    //position: absolute;
+    //top: 50%;
+    //left: 50%;
+    //z-index: 1;
+    //
+    //transform: translate3d(-50%, -50%, 0);
+  }
+
+  &__content {
+    width: 35%;
+    padding: 3.4rem 3.6rem 1rem 1.73rem;
+    position: relative;
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 0 1rem 1rem 1.73rem;
+    }
+  }
+
+  &__header {
+    margin-bottom: 2.2rem;
+    @media (max-width: 768px) {
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0.2rem;
+
+    font-size: 2.12rem;
+    font-weight: 700;
+    color: $black;
+    text-transform: uppercase;
+    a {
+      color: initial;
+      text-decoration: underline;
+    }
+  }
+
+  &__info-divider {
+    margin: 0 1rem;
+  }
+
+  &__client {
+    margin-bottom: 2.2rem;
+    @media (max-width: 768px) {
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  &__client-title {
+    margin-bottom: 0.2rem;
+
+    font-size: 1.06rem;
+    color: $black;
+    font-weight: 700;
+  }
+
+  &__client-company {
+    font-size: 0.94rem;
+    font-style: italic;
+    color: $gray;
+  }
+
+  &__text {
+    margin-bottom: 8.66rem;
+    //max-height: 410px;
+    //overflow-y: auto;
+    font-size: 0.8rem;
+    line-height: 2;
+    color: $gray;
+    font-weight: 300;
+    @media (max-width: 768px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.8rem 1rem;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &__btn {
+    padding: 0;
+    outline: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 0.94rem;
+    color: $black;
+    text-transform: uppercase;
+  }
+}

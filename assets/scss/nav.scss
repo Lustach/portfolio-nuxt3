@@ -1,0 +1,96 @@
+/* подчёркивание в nav делается не через border-bottom
+для возможности анимирования*/
+.nav {
+  display: flex;
+  height: 100%;
+  align-items: center;
+
+  &__link {
+    &--block {
+      @media ($tablet) {
+        //margin: 50% 0;
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        background-color: white;
+        box-shadow: 0 0 10px;
+        flex-direction: column;
+        width: 100%;
+        height: 90%;
+        z-index: 3;
+        overflow: hidden;
+      }
+    }
+
+    @media ($tablet) {
+      margin: 1rem;
+      align-self: center;
+      &:first-child {
+        margin: 30vh 0 1rem 0;
+      }
+    }
+    @media ($mobile) {
+      margin: 1rem;
+      align-self: center;
+      &:first-child {
+        //margin: 50% 0 0 0;
+        margin: 15vh 0 1rem 0;
+      }
+    }
+    margin-right: 2rem;
+    font-size: 0.93rem;
+    position: relative;
+    color: $black;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 20px;
+
+    &:after {
+      content: ""; // чтобы появился элемент нужно задать контент, в данном случае это не символы, а ''
+      width: 0;
+      height: 2px;
+      background-color: $black;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      z-index: 1;
+      transition: width 0.2s linear;
+    }
+
+    //not - при наведении нет класса
+    &:hover:not(.nav__link--btn) {
+      // при наведении показываем псевдо-эл. after
+      &:after {
+        width: 100%;
+      }
+    }
+
+    &--btn {
+      padding: 0.66rem 2rem;
+      border: 2px solid $black;
+      transition:
+        background-color 0.2s linear,
+        color 0.2s linear;
+
+      &:hover {
+        background-color: $black;
+        color: white;
+      }
+    }
+    &:focus {
+      outline: none;
+      &:after {
+        width: 100%;
+      }
+      &:last-child {
+        background-color: $black;
+        color: white;
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

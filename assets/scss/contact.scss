@@ -1,0 +1,53 @@
+.contact {
+  display: flex;
+  background: url(https://placehold.it/477x700) right center no-repeat;
+  background-size: 53% 100%;
+  @media ($tablet-big) {
+    background: url(https://placehold.it/477x700) right top no-repeat;
+    background-size: 43% 50%;
+    background-position-y: 4%;
+    background-position-x: 90%;
+  }
+  @media ($tablet) {
+    background: none;
+  }
+
+  &__left {
+    @media ($tablet-big) {
+      width: 100%;
+    }
+    width: 47%;
+    padding: 2rem;
+  }
+
+  &__info {
+    margin: 2rem 0 3rem;
+    padding: 0;
+    list-style: none;
+
+    font-size: 0.94rem;
+    color: $black;
+    font-weight: 300;
+  }
+
+  &__info-item {
+    &,
+    & a {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      text-decoration: none;
+      color: $black;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info-icon {
+    margin-right: 0.75rem;
+    max-height: 0.95rem;
+    min-width: 14px;
+  }
+}

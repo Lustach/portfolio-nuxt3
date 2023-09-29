@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import "./vars.scss";
+@import "../helpers.scss";
+
+@import "./scrollbar.scss";
+
+@import "./burger.scss";
+
+@import "./form.scss";
+@import "./nav.scss";
+@import "./intro.scss";
+@import "./social.scss";
+@import "./btn.scss";
+@import "./work.scss";
+@import "./works.scss";
+@import "./portfolio.scss";
+@import "./about.scss";
+@import "./reviews.scss";
+@import "./news.scss";
+@import "./article.scss";
+@import "./header.scss";
+@import "./footer.scss";
+@import "./progress-bar.scss";
+
+@import "./modal.scss";
+@import "./modal-resume.scss";
+@import "./modal-work.scss";
+@import "./contact.scss";
+@import "./timeline.scss";
+@import "./user.scss";
+
+//@import "scrollbar.less";
+//@import "blocks/container";
+//@import "blocks/header";
+//@import "blocks/user";
+//@import "blocks/nav";
+//@import "blocks/intro";
+//@import "blocks/social";
+//@import "blocks/btn";
+//@import "blocks/works";
+//@import "blocks/work";
+//@import "blocks/portfolio";
+//@import "blocks/about";
+//@import "blocks/reviews";
+//@import "blocks/news";
+//@import "blocks/articles";
+//@import "blocks/footer";
+//@import "blocks/modal";
+//@import "blocks/modal-work";
+//@import "blocks/modal-resume";
+//@import "blocks/timeline";
+//@import "blocks/progress-bar";
+//@import "blocks/contact";
+//@import "blocks/form";
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding-right: 1rem; //==15px
+  padding-left: 1rem; //==15px
+  margin: 0 auto;
+}
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: $black;
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+html {
+  font-size: 15px;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}

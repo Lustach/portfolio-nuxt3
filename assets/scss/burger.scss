@@ -1,0 +1,19 @@
+.burger {
+  width: 30px;
+  height: 30px;
+  display: none;
+  cursor: pointer;
+  @media ($tablet) {
+    display: flex;
+    z-index: 3;
+    right: 0;
+  }
+
+  &__icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+
+  margin-right: 1rem;
+}

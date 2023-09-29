@@ -1,0 +1,69 @@
+.modal {
+  //display: none;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  overflow: auto;
+  display: flex;
+  //position: fixed;
+  @media (max-width: 425px) {
+    padding: 0;
+  }
+  background-color: rgba(6, 15, 49, 0.9);
+
+  position: fixed; // or initial or fixed
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  &__dialog {
+    width: 100%;
+    //height: 100%;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+
+    background-color: #fff;
+
+    &--sm {
+      max-width: 900px;
+    }
+  }
+
+  &__close {
+    width: 34px;
+    height: 39px;
+    padding: 0;
+    outline: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+
+    position: absolute;
+    top: 0.9rem;
+    right: 1rem;
+    z-index: 1;
+
+    transition: transform 0.2s linear;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  &__title {
+    margin-bottom: 3.6rem;
+
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $black;
+    font-weight: 700;
+    @media ($mobile) {
+      font-size: 2rem;
+    }
+  }
+
+  &__content {
+    padding: 5rem 1rem;
+  }
+}
