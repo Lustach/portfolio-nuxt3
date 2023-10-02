@@ -6,11 +6,6 @@
     <About />
     <Footer />
     <Resume v-show="modalState.isShowResume" />
-    <!-- <Project
-      v-if="modalState.isShowProject"
-      :project="project.project"
-      @close="closeModal('isShowProject')"
-    /> -->
     <!-- 
 
     <HireMe v-show="modalState.isShowHireMe" @close="closeModal('isShowHireMe')" /> -->

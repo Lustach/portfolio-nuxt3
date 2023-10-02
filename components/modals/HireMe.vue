@@ -2,27 +2,15 @@
   <div id="modal_hire_me" class="modal">
     <div class="modal__dialog modal__dialog--sm">
       <button class="modal__close" type="button" @click="close()">
-        <img
-          loading="lazy"
-          src="@/assets/images/times-circle.svg"
-          alt="Close"
-        />
+        <img loading="lazy" src="@/assets/images/times-circle.svg" alt="Close" />
       </button>
-
       <div class="contact">
         <div class="contact__left">
           <h3 class="modal__title mb-0">Поболтаем?!</h3>
           <h4 class="modal__subtitle">Позвоните или отправьте письмо</h4>
-
           <ul class="contact__info">
-            <!--            <li class="contact__info-item">-->
-            <!--              <img loading="lazy" class="contact__info-icon" src="@/assets/images/phone-square.svg" alt=""/>-->
-            <!--              0714494247-->
-            <!--            </li>-->
             <li class="contact__info-item">
-              <a
-                href="mailto:lusta.vlad2001@gmail.com?subject=Предложение о работе"
-              >
+              <a href="mailto:lusta.vlad2001@gmail.com?subject=Предложение о работе">
                 <img
                   loading="lazy"
                   class="contact__info-icon"
@@ -144,11 +132,7 @@ export default {
       }
     },
     custom(context) {
-      if (
-        context.flags.required &&
-        !context.value &&
-        !context.flags.validated
-      ) {
+      if (context.flags.required && !context.value && !context.flags.validated) {
         return {
           on: ["blur"],
         };

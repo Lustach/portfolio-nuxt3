@@ -4,7 +4,6 @@
       <h5 style="text-align: center; padding: 1rem 0 1.4rem 0">
         Некоторые примеры разработанных мной приложений
       </h5>
-      <!--container-->
       <div class="works__nav">
         <NuxtLink
           v-for="(category, key) in worksList"
@@ -21,7 +20,7 @@
           v-for="(project, key) in filterProjectList"
           :key="key"
           class="portfolio__col"
-          @click="showProjectModal({ project, key })"
+          @click="showProjectModal(project)"
         >
           <div class="work">
             <picture>
@@ -42,15 +41,25 @@
         <div v-if="filterProjectList.length === 0">Ничего нет</div>
       </div>
     </div>
+    <Project
+      v-if="modalState.isShowProject"
+      :project="selectedProject"
+      @close="closeModal('isShowProject')"
+    />
   </div>
 </template>
 
 <script setup>
-import {computed} from 'vue'
+import { computed } from "vue";
 import { useMainStore } from "~/store/store";
+import { useModalsStore } from "@/store/modals";
+import Project from "@/components/modals/Project";
+
+const modalStore = useModalsStore();
+const modalState = modalStore.modalState;
 const store = useMainStore();
 const dateTime = new Date().getFullYear();
-const filterParam = ref("Все")
+const filterParam = ref("Все");
 const worksList = ref([
   {
     title: "Все",
@@ -72,7 +81,7 @@ const worksList = ref([
     title: "Разное",
     key: "Разное",
   },
-])
+]);
 const filterProjectList = computed(() => {
   const projectList = store.projectList;
   const filteredProjects =
@@ -80,9 +89,12 @@ const filterProjectList = computed(() => {
       ? projectList.filter((e) => e.category === filterParam.value)
       : projectList;
   return filteredProjects;
-})
-const showProjectModal = (item) => {
-  // this.$emit("showProject", item);
+});
+const selectedProject = ref(null);
+const showProjectModal = (project) => {
+  console.log(project);
+  selectedProject.value = project;
+  modalState.isShowProject = true;
 };
 </script>
 

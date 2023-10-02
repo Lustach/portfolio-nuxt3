@@ -160,7 +160,6 @@ export const useMainStore = defineStore('main', {
           // category: 'website',
           date: "2020 - 2021",
         },
-  
         {
           title: "BlagoeDelo",
           description: "Классический сайт-визитка",

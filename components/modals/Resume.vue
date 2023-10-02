@@ -1,19 +1,11 @@
 <template>
   <div id="modal_resume" class="modal">
     <div class="modal__dialog">
-    {{ modalState }}
       <button class="modal__close" type="button" @click="close('isShowResume')">
         <img loading="lazy" src="@/assets/images/times-circle.svg" alt="Close" />
       </button>
-
       <div class="modal__content">
         <h3 class="modal__title text-center" data-modal="#modal_resume">Резюме</h3>
-
-        <!--                <div class="text-center">-->
-        <!--                  <a class="btn btn&#45;&#45;thin" href="#">Скачать PDF</a>-->
-        <!--                  <a class="btn btn&#45;&#45;thin" href="#">Печать</a>-->
-        <!--                </div>-->
-
         <div class="timeline">
           <div class="timeline__col timeline__col--left">
             <h4 class="timeline__title">Коммерческий опыт</h4>
@@ -98,21 +90,23 @@
           <!--          <a class="btn" href="#" data-modal="#modal_hire_me" @click="showHireMe()">Нанять</a>-->
         </div>
       </div>
-      <!-- /.timeline -->
     </div>
-    <!-- /.modal__content -->
   </div>
-  <!-- /.modal__dialog -->
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive, inject } from "vue";
 import { useModalsStore } from "@/store/modals";
 const modalStore = useModalsStore();
-const modalState = modalStore.modalState;
 const close = modalStore.close;
-
-const experienceList = reactive([
+type experienceList = {
+  date_start: string;
+  date_end: string;
+  company: string;
+  position: string;
+  description: string;
+};
+const experienceList: experienceList[] = reactive([
   {
     date_start: "2021",
     date_end: "2022",

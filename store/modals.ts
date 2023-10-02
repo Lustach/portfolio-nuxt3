@@ -1,19 +1,15 @@
-// In Setup Stores:
-
-// ref()s become state properties
-// computed()s become getters
-// function()s become actions
-import {reactive} from 'vue'
+import {reactive} from 'vue';
 import { setBodyOverflow, deleteBodyOverflow } from "@/composables/useBodyOverflow";
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 export const useModalsStore = defineStore('modals',()=> {
-    //: { [key: string]: boolean } 
-    const modalState = reactive({
+  //{ [key: string]: boolean }
+    const modalState:{ [key: string]: boolean } = reactive({
         isShowProject: false,
         isShowResume: false,
         isShowHireMe: false,
     })
-    function close(modalStateKey) {
+    //"isShowProject"|"isShowResume"|"isShowHireMe"
+    function close(modalStateKey:"isShowProject"|"isShowResume"|"isShowHireMe") {
       deleteBodyOverflow()
       modalState[modalStateKey] = false;
     }

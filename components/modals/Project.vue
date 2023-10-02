@@ -1,29 +1,18 @@
 <template>
   <div id="modal_project" class="modal">
     <div class="modal__dialog">
-      <button class="modal__close" type="button" @click="close()">
-        <img
-          loading="lazy"
-          src="@/assets/images/times-circle.svg"
-          alt="Close"
-        />
+      <button class="modal__close" type="button" @click="close('isShowProject')">
+        <img loading="lazy" src="@/assets/images/times-circle.svg" alt="Close" />
       </button>
       <div class="modal-work">
         <div class="modal-work__preview">
-          <!--          {{project.imgList}}-->
-          <!--          <img v-for="(item,key) in project.imgList" loading="lazy" class="modal-work__photo" :src="require(`~/assets/images/projects/${item}`)" alt=""-->
-          <!--               :key="key"-->
-          <!--          />-->
           <img
             v-if="activeImg"
-            :src="require(`~/assets/images/projects/${activeImg}`)"
+            :src="activeImgSrc"
             alt=""
             loading="lazy"
             class="modal-work__photo"
           />
-          <!--          <div>-->
-          <!--            hui-->
-          <!--          </div>-->
           <div class="carousel__items_circle__wrapper">
             <div
               v-for="(item, key) in project.imgList"
@@ -59,8 +48,6 @@
               />
             </button>
           </div>
-          <!--          <img :src="require('~/assets/images/projects/corella/img_2.png')" alt="">-->
-          <!--          <img src="https://drive.google.com/thumbnail?id=1bc4bcCe3vsu9&#45;&#45;1edGHx0yuRDG8v2V27" alt="">-->
         </div>
         <div class="modal-work__content">
           <div class="modal-work__header">
@@ -83,18 +70,6 @@
 
           <div class="modal-work__text">
             {{ project.description }}
-            <!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dicta, recusandae debitis iusto quos voluptatum at. Dolorum a, velit rerum dicta aut-->
-            <!--              sapiente,-->
-            <!--              optio accusantium? Sunt sed praesentium est minima.</p>-->
-            <!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dicta, recusandae debitis iusto quos voluptatum at. Dolorum a, velit rerum dicta aut-->
-            <!--              sapiente,-->
-            <!--              optio accusantium? Sunt sed praesentium est minima.</p>-->
-            <!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dicta, recusandae debitis iusto quos voluptatum at. Dolorum a, velit rerum dicta aut-->
-            <!--              sapiente,-->
-            <!--              optio accusantium? Sunt sed praesentium est minima.</p>-->
-            <!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dicta, recusandae debitis iusto quos voluptatum at. Dolorum a, velit rerum dicta aut-->
-            <!--              sapiente,-->
-            <!--              optio accusantium? Sunt sed praesentium est minima.</p>-->
           </div>
 
           <!--          <div class="modal-work__footer">-->
@@ -118,60 +93,45 @@
           <!--            </button>-->
           <!--          </div>-->
         </div>
-        <!-- /.modal-work__content -->
       </div>
-      <!--/.modal-work -->
     </div>
-    <!-- /.modal__dialog -->
   </div>
 </template>
 
-<script>
-import modal from "@/mixins/modal";
+<script setup lang="ts">
+import { ref, computed, onBeforeMount } from "vue";
+import { useModalsStore } from "@/store/modals";
+const modalStore = useModalsStore();const close = modalStore.close;
+const props = defineProps({ project: { type: Object, required: true } });
 
-export default {
-  name: "Project",
-  mixins: [modal],
-  props: {
-    project: {
-      type: Object,
-      required: true,
-    },
-  },
-  data: () => ({
-    activeImg: "",
-    activeImgIndex: 0,
-  }),
-  computed: {
-    projectImgListLength: (vm) => vm.project.imgList.length,
-  },
-  mounted() {
-    this.activeImg = this.project.imgList[this.activeImgIndex];
-  },
-  methods: {
-    showPrevImg() {
-      if (
-        this.activeImgIndex < this.projectImgListLength &&
-        this.activeImgIndex > 0
-      ) {
-        this.activeImgIndex--;
-      } else if (this.activeImgIndex === 0) {
-        this.activeImgIndex = this.projectImgListLength - 1;
-      } else {
-        this.activeImgIndex--;
-      }
-      this.activeImg = this.project.imgList[this.activeImgIndex];
-    },
-    showNextImg() {
-      if (this.activeImgIndex < this.projectImgListLength - 1) {
-        this.activeImgIndex++;
-      } else {
-        this.activeImgIndex = 0;
-      }
-      this.activeImg = this.project.imgList[this.activeImgIndex];
-    },
-  },
+const activeImg = ref("");
+const activeImgIndex = ref(0);
+const projectImgListLength = computed(() => props.project.imgList.length);
+onBeforeMount(() => {
+  console.log(props.project.imgList);
+  activeImg.value = props.project.imgList[activeImgIndex.value];
+});
+const showPrevImg = () => {
+  if (activeImgIndex.value < projectImgListLength.value && activeImgIndex.value > 0) {
+    activeImgIndex.value--;
+  } else if (!!activeImgIndex.value) {
+    (activeImgIndex.value = projectImgListLength.value - 1);
+  } else {
+    activeImgIndex.value--;
+  }
+  activeImg.value = props.project.imgList[activeImgIndex.value];
 };
+const showNextImg = () => {
+  if (activeImgIndex.value < projectImgListLength.value - 1) {
+    activeImgIndex.value++;
+  } else {
+    activeImgIndex.value = 0;
+  }
+  activeImg.value = props.project.imgList[activeImgIndex.value];
+};
+const activeImgSrc = computed(() => {
+  return new URL(`/assets/images/projects/${activeImg.value}`, import.meta.url).href;
+});
 </script>
 
 <style scoped lang="scss">
