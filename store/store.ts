@@ -5,12 +5,20 @@ export const useMainStore = defineStore('main', {
     projectList: reactive([
         {
           title: "Citadel.one",
-          description: "",
+          description:
+          "Крипто платформа, предоставляющая для пользователя интуитивный UI/UX, аналитические функции, встроенные приложения. А для разработчиков - создание приложений с помощью SDK. ",
           clientOrCompany: "Citadel.one",
-          category: "super app",
+          category: "Crypto Super App",
           skillStacks: ["vue 3", "web 3"],
           link: "https://app.citadel.one",
           date: "2022 - 2023",
+          imgList: [
+            "citadel/img_1.png",
+            "citadel/img_2.png",
+            "citadel/img_3.png",
+            "citadel/img_4.png",
+            "citadel/img_5.png",
+          ],
         },
         {
           title: "VoBlago",

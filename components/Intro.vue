@@ -8,7 +8,7 @@
           <div class="intro__text">Frontend-разработчик</div>
           <div class="social">
             <!-- Svg sprites -->
-            <a
+            <!-- <a
               href="https://vk.com/tartarin3"
               class="social__link social__link_vk"
             >
@@ -18,7 +18,7 @@
                   xmlns="http://www.w3.org/2000/svg"
                 ></use>
               </svg>
-            </a>
+            </a> -->
             <a
               href="https://github.com/Lustach"
               class="social__link social__link_github"

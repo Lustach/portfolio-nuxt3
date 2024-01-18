@@ -8,14 +8,14 @@
           </div>
 
           <div class="footer__social">
-            <a href="https://vk.com/tartarin3" class="footer__link">
+            <!-- <a href="https://vk.com/tartarin3" class="footer__link">
               <svg>
                 <use
                   xlink:href="@/assets/images/svgSprites.svg#vk"
                   xmlns="http://www.w3.org/2000/svg"
                 />
               </svg>
-            </a>
+            </a> -->
             <a href="https://github.com/Lustach" class="footer__link">
               <svg>
                 <use
