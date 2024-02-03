@@ -8,8 +8,9 @@
           </div>
           <div class="user__content">
             <div class="user__name">
-              Влад <br />
-              Луста
+              {{ $t("welcome") }}
+              <p>Влад</p>
+              <p>Луста</p>
             </div>
             <div class="user__prof">Frontend Developer</div>
           </div>
@@ -42,6 +43,8 @@
 
 <script setup>
 import { deleteBodyOverflow, setBodyOverflow } from "@/composables/useBodyOverflow";
+// import { useI18n } from "vue-i18n";
+// const {t} = useI18n();
 //   mixins: [modal],
 const isMobileMenu = ref(false);
 const menu = ref([
@@ -114,6 +117,9 @@ const showMobileMenu = () => {
     color: black;
     font-weight: 700; //bold==700
     line-height: 1.2rem;
+    p {
+      margin: 0;
+    }
   }
 
   &__prof {

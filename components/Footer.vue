@@ -38,6 +38,7 @@
         <!-- /.footer__credits -->
 
         <nav class="footer__nav">
+          <pre>{{ data }}</pre>
           <a class="footer__nav-link" href="#">Проекты</a>
           <a class="footer__nav-link" href="#">Обо мне</a>
           <!--          <a class="footer__nav-link" href="#">Blog</a>-->
@@ -51,9 +52,9 @@
   </footer>
 </template>
 
-<script setup>
-// import useModal from "@/composables/useModal";
-
+<script setup lang="ts">
+const { data } = await useFetch("/api/hello");
+console.log(data);
 // const { showResume } = useModal();
 </script>
 

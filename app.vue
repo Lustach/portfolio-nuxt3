@@ -1,24 +1,10 @@
 <template>
   <div>
-    <Header/>
-    <Intro />
-    <Works />
-    <About />
-    <Footer />
-    <Resume v-show="modalState.isShowResume" />
-    <!-- 
-
-    <HireMe v-show="modalState.isShowHireMe" @close="closeModal('isShowHireMe')" /> -->
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
-<script setup>
-import { inject } from "vue";
-import { useModalsStore } from "@/store/modals";
-import { useMainStore } from "@/store/store";
-import Resume from "@/components/modals/Resume";
-const store = useMainStore();
-const modalState = useModalsStore().modalState;
+<script setup lang="ts">
+const { data } = await useFetch("/api/hello");
 </script>
-<style lang="scss">
-@import "@/assets/scss/main.scss";
-</style>
