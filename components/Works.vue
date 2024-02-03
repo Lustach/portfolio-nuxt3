@@ -2,7 +2,7 @@
   <div id="work" class="works">
     <div class="container">
       <h5 style="text-align: center; padding: 1rem 0 1.4rem 0">
-        Некоторые примеры разработанных мной приложений
+        {{ t("works.H5") }}
       </h5>
       <div class="works__nav">
         <NuxtLink
@@ -38,7 +38,7 @@
             </div>
           </div>
         </div>
-        <div v-if="filterProjectList.length === 0">Ничего нет</div>
+        <div v-if="filterProjectList.length === 0">{{ t("works.nothingFounded") }}</div>
       </div>
     </div>
     <Project
@@ -54,7 +54,8 @@ import { computed } from "vue";
 import { useMainStore } from "~/store/store";
 import { useModalsStore } from "@/store/modals";
 import Project from "@/components/modals/Project";
-
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 const modalStore = useModalsStore();
 const modalState = modalStore.modalState;
 const store = useMainStore();
@@ -62,23 +63,23 @@ const dateTime = new Date().getFullYear();
 const filterParam = ref("Все");
 const worksList = ref([
   {
-    title: "Все",
+    title: t("works.categories.all"),
     key: "Все",
   },
   {
-    title: "Приложения",
+    title: t("works.categories.apps"),
     key: "Приложение",
   },
   {
-    title: "Лендинги",
+    title: t("works.categories.landings"),
     key: "Лендинг",
   },
   {
-    title: "Виджеты",
+    title: t("works.categories.widgets"),
     key: "Виджет",
   },
   {
-    title: "Разное",
+    title: t("works.categories.other"),
     key: "Разное",
   },
 ]);

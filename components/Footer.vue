@@ -4,7 +4,7 @@
       <div class="footer__inner">
         <div class="footer__credits">
           <div class="footer__copyright">
-            &copy; {{ new Date().getFullYear() }} Все права защищены
+            &copy; {{ new Date().getFullYear() }} {{ $t("rightsReserved") }}
           </div>
 
           <div class="footer__social">
@@ -39,8 +39,8 @@
 
         <nav class="footer__nav">
           <pre>{{ data }}</pre>
-          <a class="footer__nav-link" href="#">Проекты</a>
-          <a class="footer__nav-link" href="#">Обо мне</a>
+          <a class="footer__nav-link" href="#">{{ $t('projects') }}</a>
+          <a class="footer__nav-link" href="#">{{ $t('aboutMe') }}</a>
           <!--          <a class="footer__nav-link" href="#">Blog</a>-->
           <!--          <a class="footer__nav-link" href="#">Contact</a>-->
           <!--          <a class="footer__nav-link  footer__nav-link&#45;&#45;btn"  data-modal="#modal_hire_me" @click="showHireMe()">Нанять</a>-->

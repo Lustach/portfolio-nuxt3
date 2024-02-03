@@ -3,9 +3,9 @@
     <div class="container">
       <div class="intro__inner">
         <div class="intro__content">
-          <h2 class="intro__subtitle">Здравствуй</h2>
-          <h1 class="intro__title">Я Влад Луста</h1>
-          <div class="intro__text">Frontend-разработчик</div>
+          <h2 class="intro__subtitle">{{ $t("greetings") }}</h2>
+          <h1 class="intro__title">{{ $t("I") }} {{ $t("name") }} {{ $t("surname") }}</h1>
+          <div class="intro__text">{{ $t('profession') }}</div>
           <div class="social">
             <!-- Svg sprites -->
             <!-- <a
@@ -19,10 +19,7 @@
                 ></use>
               </svg>
             </a> -->
-            <a
-              href="https://github.com/Lustach"
-              class="social__link social__link_github"
-            >
+            <a href="https://github.com/Lustach" class="social__link social__link_github">
               <svg>
                 <use
                   xlink:href="@/assets/images/svgSprites.svg#github"
@@ -54,16 +51,12 @@
             data-modal="#modal_resume"
             @click="showResume()"
           >
-            Резюме
+            {{ $t("resume") }}
           </button>
         </div>
         <picture>
           <source srcset="@/assets/images/photo.webp" type="image/webp" />
-          <img
-            loading="lazy"
-            src="@/assets/images/photo.png"
-            class="intro__photo"
-            alt=""
+          <img loading="lazy" src="@/assets/images/photo.png" class="intro__photo" alt=""
         /></picture>
       </div>
     </div>

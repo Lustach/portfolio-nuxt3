@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
+    "@vueuse/nuxt": "^10.7.2",
+    "nuxt-storage": "^1.2.2",
     "pinia": "^2.1.6"
   },
   "overrides": {

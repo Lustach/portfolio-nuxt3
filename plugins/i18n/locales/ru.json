@@ -1,25 +1,100 @@
 {
-    "welcome": "Здарова123",
     "name": "Влад",
     "surname": "Луста",
     "projects": "Проекты",
     "aboutMe": "Обо мне",
     "greetings": "Приветствую",
     "I": "Я",
-    "frontendDeveloper": "Frontend-разработчик",
+    "profession": "Frontend-разработчик",
     "resume": "Резюме",
     "works": {
-        "worksH5": "Некоторые примеры разработанных мной приложений",
+        "H5": "Некоторые примеры разработанных мной приложений",
         "categories": {
             "all": "Все",
             "apps": "Приложения",
-            "lendings": "Лендинги",
+            "landings": "Лендинги",
             "widgets": "Виджеты",
             "other": "Разное"
-        }
+        },
+        "nothingFounded": "Ничего не найдено"
     },
     "about": {
         "whoAmI": "Кто же я?",
         "text": "Я профессионально занимаюсь Frontend-ом уже более четырёх лет, и за это время успел многому научиться и поучаствовать в разработке крутых приложений, а некоторые даже создал с нуля. Имею опыт поддержки, оптимизации сайтов и рефакторинга кода, разработки SPA(таблицы, деревья, сортировки, формы, валидации, графики), лендингов, виджетов, скриптов различной сложности, разработка UI-компонентов, всё это с использованием зарекомендовавших себя практик(KISS,DRY,SOLID,YAGNI) и шаблонов. При создании проектов использую Vue 2/Vue 3, и его экосистему, иногда Typescript, UI чаще всего делал с помощью Vuetify, Quasar, Element-UI, BootstrapVue, Naive Ui. Умею работать с pug, gulp, webpack, vite, всеми пакетными менеджерами, понимаю git-flow. Css: sass, less, modules, styled components. Юнит тесты: vitest, jest. E2e: cypress. И немного могу в компонентный используя vue-test-utils. Для хранилища использую pinia или vuex. В технологиях вижу инструмент, а не цель. Так же могу использовать, но с меньшей эффективностью, Node.js, Fastify, Express, MongoDb, Nuxt. Docker, PostgresSql, GraphQl, React. Практикую создание дизайн систем, создание ui в фигме, понимаю принципы material design. Понимаю принципы мобильной разработки. Использовал для приложений Dart и Flutter. Приходилось работать с openServer, Jenkins, Nexus. Предлагаю свои услуги с полным пониманием, что на мне лежит ответственность за выполнение задач. Понимаю, что предстоит работа в команде над проектами, и буду безумно рад если команда будет заинтересована в качестве выполнения работы и соблюдать рационализм."
-    }
+    },
+    "skills": {
+        "base": {
+            "title": "БАЗА",
+            "list": [
+                "HTML",
+                "JS",
+                "TS",
+                "CSS"
+            ]
+        },
+        "css": {
+            "title": "CSS",
+            "list": [
+                "SASS",
+                "LESS",
+                "PUG",
+                "STYLED-COMPONENTS",
+                "CSS-MODULES"
+            ]
+        },
+        "uiLibs": {
+            "title": "UI-LIBS",
+            "list": [
+                "VUETIFY",
+                "QUASAR",
+                "ELEMENT-UI",
+                "NAIVE",
+                "RADIX",
+                "PRIME_VUE",
+                "MATERIAL-DESIGN",
+                "BOOTSTRAP",
+                "CHART.JS"
+            ]
+        },
+        "tests": {
+            "title": "Tests",
+            "list": [
+                "Jest",
+                "Vitest",
+                "VTU",
+                "Cypress"
+            ]
+        },
+        "forms": {
+            "title": "Forms",
+            "list": [
+                "VUE FORMKIT",
+                "YUP",
+                "VEE VALIDATE",
+                "VUELIDATE"
+            ]
+        },
+        "bundlers": {
+            "title": "Bundlers",
+            "list": [
+                "webpack",
+                "vite"
+            ]
+        },
+        "ciCd": {
+            "title": "CI/CD",
+            "list": [
+                "DOCKER",
+                "GITLAB"
+            ]
+        },
+        "frameworks": {
+            "title": "Frameworks",
+            "list": [
+                "VUE 2/3",
+                "NUXT"
+            ]
+        }
+    },
+    "rightsReserved": "Все права защищены"
 }

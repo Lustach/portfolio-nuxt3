@@ -8,14 +8,16 @@
           </div>
           <div class="user__content">
             <div class="user__name">
-              {{ $t("welcome") }}
-              <p>Влад</p>
-              <p>Луста</p>
+              <p>{{ $t("name") }}</p>
+              <p>{{ $t("surname") }}</p>
             </div>
-            <div class="user__prof">Frontend Developer</div>
+            <div class="user__prof">{{ $t("profession") }}</div>
           </div>
         </div>
         <nav class="nav">
+          <button @click="changeLocale" class="nav__link change__lang-button">
+            {{ locale.value == "en" ? "ru" : "en" }}
+          </button>
           <div class="nav__link--block" :class="{ 'mobile-menu': isMobileMenu }">
             <a
               v-for="(item, key) in menu"
@@ -23,8 +25,8 @@
               :href="item.to"
               class="nav__link"
               @click="showMobileMenu()"
-              >{{ item.name }}</a
-            >
+              >{{ item.name }}
+            </a>
             <!--            <a class="nav__link nav__link&#45;&#45;btn" data-modal="#modal_hire_me" @click="showHireMe();showMobileMenu()">Нанять</a>-->
           </div>
         </nav>
@@ -43,18 +45,18 @@
 
 <script setup>
 import { deleteBodyOverflow, setBodyOverflow } from "@/composables/useBodyOverflow";
-// import { useI18n } from "vue-i18n";
-// const {t} = useI18n();
-//   mixins: [modal],
+import { useI18n } from "vue-i18n";
+const { t, setLocale, locale } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 const isMobileMenu = ref(false);
 const menu = ref([
   {
-    name: "Проекты",
+    name: t("projects"),
     to: "#work",
     toShow: true,
   },
   {
-    name: "Обо мне",
+    name: t("aboutMe"),
     to: "#about_me",
     toShow: true,
   },
@@ -69,6 +71,10 @@ const menu = ref([
   //   toShow: false,
   // }
 ]);
+const changeLocale = () => {
+  localStorage.setItem("lang", locale.value == "en" ? "ru" : "en");
+  window.location.reload();
+};
 const showMobileMenu = () => {
   if (window.innerWidth <= 767) {
     isMobileMenu.value = !isMobileMenu.value;
@@ -133,5 +139,16 @@ const showMobileMenu = () => {
 .mobile-menu {
   display: flex !important;
   height: 100vh;
+}
+.change__lang-button {
+  background: none;
+  outline: none;
+  border: none;
+  margin-bottom: -2px;
+  cursor: pointer;
+  border-radius: 0;
+  &:hover {
+    box-shadow: 2px 2px 10px rgba(#000, 24%);
+  }
 }
 </style>
