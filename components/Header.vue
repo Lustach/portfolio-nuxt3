@@ -15,10 +15,10 @@
           </div>
         </div>
         <nav class="nav">
-          <button @click="changeLocale" class="nav__link change__lang-button">
-            {{ locale.value == "en" ? "ru" : "en" }}
-          </button>
           <div class="nav__link--block" :class="{ 'mobile-menu': isMobileMenu }">
+            <button @click="changeLocale" class="nav__link change__lang-button">
+            {{ locale.value == "en" ? "ru" : "en" }}
+            </button>
             <a
               v-for="(item, key) in menu"
               :key="key"

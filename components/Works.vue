@@ -29,10 +29,10 @@
             /></picture>
             <div class="work__content">
               <div class="work__cat">
-                {{ project.category }}
+                {{ t("works.categories." + project.category) }}
               </div>
               <div class="work__title">
-                {{ project.title }}
+                {{ projectTitle(key) }}
                 <time class="work__date" :datetime="dateTime">{{ project.date }}</time>
               </div>
             </div>
@@ -55,47 +55,49 @@ import { useMainStore } from "~/store/store";
 import { useModalsStore } from "@/store/modals";
 import Project from "@/components/modals/Project";
 import { useI18n } from "vue-i18n";
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const modalStore = useModalsStore();
 const modalState = modalStore.modalState;
 const store = useMainStore();
 const dateTime = new Date().getFullYear();
-const filterParam = ref("Все");
+const filterParam = ref("all");
 const worksList = ref([
   {
     title: t("works.categories.all"),
-    key: "Все",
+    key: "all",
   },
   {
-    title: t("works.categories.apps"),
-    key: "Приложение",
+    title: t("works.categories.app"),
+    key: "app",
   },
   {
-    title: t("works.categories.landings"),
-    key: "Лендинг",
+    title: t("works.categories.landing"),
+    key: "landing",
   },
   {
-    title: t("works.categories.widgets"),
-    key: "Виджет",
+    title: t("works.categories.widget"),
+    key: "widget",
   },
   {
     title: t("works.categories.other"),
-    key: "Разное",
+    key: "other",
   },
 ]);
+const projectList = store.projectList;
 const filterProjectList = computed(() => {
-  const projectList = store.projectList;
   const filteredProjects =
-    filterParam.value !== "Все"
+    filterParam.value !== "all"
       ? projectList.filter((e) => e.category === filterParam.value)
       : projectList;
   return filteredProjects;
 });
 const selectedProject = ref(null);
 const showProjectModal = (project) => {
-  console.log(project);
   selectedProject.value = project;
   modalState.isShowProject = true;
+};
+const projectTitle = (key) => {
+  return projectList[key]["title" + locale.value] || projectList[key].titleru;
 };
 </script>
 

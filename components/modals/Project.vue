@@ -52,24 +52,24 @@
         <div class="modal-work__content">
           <div class="modal-work__header">
             <h3 class="modal-work__title">
-              <a target="_blank" :href="project.link">{{ project.title }}</a>
+              <a target="_blank" :href="project.link">{{ projectPropByKey("title") }}</a>
             </h3>
             <div class="modal-work__info">
-              {{ project.category }}
+              {{ t("works.categories." + project.category) }}
               <span class="modal-work__info-divider">|</span>
               {{ project.date }}
             </div>
           </div>
 
           <div class="modal-work__client">
-            <div class="modal-work__client-title">Компания:</div>
+            <div class="modal-work__client-title">{{ t("company") }}:</div>
             <div class="modal-work__client-company">
               {{ project.clientOrCompany }}
             </div>
           </div>
 
           <div class="modal-work__text">
-            {{ project.description }}
+            {{ projectPropByKey("description") }}
           </div>
 
           <!--          <div class="modal-work__footer">-->
@@ -101,8 +101,10 @@
 <script setup lang="ts">
 import { ref, computed, onBeforeMount } from "vue";
 import { useModalsStore } from "@/store/modals";
-const modalStore = useModalsStore();const close = modalStore.close;
+const modalStore = useModalsStore();
+const close = modalStore.close;
 const props = defineProps({ project: { type: Object, required: true } });
+const { t, locale } = useI18n();
 
 const activeImg = ref("");
 const activeImgIndex = ref(0);
@@ -115,7 +117,7 @@ const showPrevImg = () => {
   if (activeImgIndex.value < projectImgListLength.value && activeImgIndex.value > 0) {
     activeImgIndex.value--;
   } else if (!!activeImgIndex.value) {
-    (activeImgIndex.value = projectImgListLength.value - 1);
+    activeImgIndex.value = projectImgListLength.value - 1;
   } else {
     activeImgIndex.value--;
   }
@@ -132,6 +134,9 @@ const showNextImg = () => {
 const activeImgSrc = computed(() => {
   return new URL(`/assets/images/projects/${activeImg.value}`, import.meta.url).href;
 });
+const projectPropByKey = (key: string) => {
+  return props.project[key + locale.value] || props.project[key + "ru"];
+};
 </script>
 
 <style scoped lang="scss">

@@ -4,13 +4,14 @@
       <div class="about__inner">
         <div class="about__photo">
           <picture>
-            <source srcset="@/assets/images/designer_photo.webp" type="image/webp" />
+            <!-- <source srcset="@/assets/images/designer_photo.webp" type="image/webp" /> -->
             <img
               loading="lazy"
-              src="@/assets/images/designer_photo.png"
+              src="@/assets/images/Photo2.jpg"
               class="intro__photo img"
               alt=""
-          /></picture>
+            />
+          </picture>
         </div>
         <div class="about__content">
           <h3 class="about__title">{{ $t("aboutMe") }}</h3>
@@ -219,5 +220,8 @@ ul {
   gap: 10px;
   font-size: 14px;
   flex-wrap: wrap;
+}
+img {
+  width: 100%;
 }
 </style>

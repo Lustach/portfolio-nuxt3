@@ -5,7 +5,7 @@
         <div class="intro__content">
           <h2 class="intro__subtitle">{{ $t("greetings") }}</h2>
           <h1 class="intro__title">{{ $t("I") }} {{ $t("name") }} {{ $t("surname") }}</h1>
-          <div class="intro__text">{{ $t('profession') }}</div>
+          <div class="intro__text">{{ $t("profession") }}</div>
           <div class="social">
             <!-- Svg sprites -->
             <!-- <a
@@ -55,9 +55,14 @@
           </button>
         </div>
         <picture>
-          <source srcset="@/assets/images/photo.webp" type="image/webp" />
-          <img loading="lazy" src="@/assets/images/photo.png" class="intro__photo" alt=""
-        /></picture>
+          <!-- <source srcset="@/assets/images/photo.webp" type="image/webp" /> -->
+          <img
+            loading="lazy"
+            src="@/assets/images/Photo1.jpg"
+            class="intro__photo"
+            alt=""
+          />
+        </picture>
       </div>
     </div>
   </section>

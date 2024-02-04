@@ -4,24 +4,30 @@
     "projects": "Projects",
     "aboutMe": "About Me",
     "greetings": "Greetings",
-    "I": "I",
+    "I": "I am",
     "profession": "Frontend Developer",
     "resume": "Resume",
+    "company": "Company",
+    "experience": "Commercial experience",
     "works": {
         "H5": "Some examples of applications developed by me",
         "categories": {
             "all": "All",
-            "apps": "Applications",
-            "landings": "Landing Pages",
-            "widgets": "Widgets",
+            "app": "Application",
+            "landing": "Landing Page",
+            "widget": "Widget",
             "other": "Other"
         },
         "nothingFounded": "nothing founded"
     },
     "about": {
         "whoAmI": "Who am I?",
-        "text": "I have been professionally engaged in Frontend development for more than four years, and during this time, I have learned a lot and participated in the development of cool applications, some of which I created from scratch. I have experience in supporting, optimizing websites, and refactoring code. I have worked on the development of SPAs (tables, trees, sorting, forms, validations, graphics), landing pages, widgets, and scripts of various complexity. I develop UI components using established practices (KISS, DRY, SOLID, YAGNI) and templates. When creating projects, I use Vue 2/Vue 3 and its ecosystem, sometimes Typescript. I have mostly worked with Vuetify, Quasar, Element-UI, BootstrapVue, Naive Ui for UI. I am proficient in pug, gulp, webpack, vite, all package managers, and understand git-flow. CSS: sass, less, modules, styled components. Unit tests: vitest, jest. E2e: cypress. I also have some experience with component testing using vue-test-utils. I use pinia or vuex for state management. I see technologies as tools, not goals. I can also work with Node.js, Fastify, Express, MongoDB, Nuxt, with less efficiency. Docker, PostgreSQL, GraphQL, React are also within my skill set. I practice creating design systems, design UI in Figma, and understand the principles of material design. I understand the principles of mobile development. I have used Dart and Flutter for mobile applications. I have experience working with openServer, Jenkins, Nexus. I offer my services with a full understanding of the responsibility for task completion. I understand that working in a team on projects is ahead, and I will be immensely happy if the team is interested in the quality of work and adheres to rationalism."
+        "text": "I have been professionally engaged in Frontend development for more than four years, and during this time, I have learned a lot and participated in the development of cool applications, some of which I created from scratch. I have experience in supporting, optimizing websites, and refactoring code. I have worked on the development of SPAs (tables, trees, sorting, forms, validations, graphics), landing pages, widgets, and scripts of various complexity. I develop UI components using established practices (KISS, DRY, SOLID, YAGNI) and templates. When creating projects, I use Vue 2/Vue 3 and its ecosystem, sometimes Typescript, Nuxt2/3. I have mostly worked with Vuetify, Quasar, Element-UI, BootstrapVue, Naive Ui for UI. I am proficient in pug, gulp, webpack, vite, all package managers, and understand git-flow. CSS: sass, less, modules, styled components. Unit tests: vitest, jest. E2e: cypress. I also have some experience with component testing using vue-test-utils. I use pinia or vuex for state management. I see technologies as tools, not goals. I can also work with Node.js, Fastify, Express, MongoDB, with less efficiency. Docker, PostgreSQL, GraphQL, React are also within my skill set. I practice creating design systems, design UI in Figma, and understand the principles of material design. I understand the principles of mobile development. I have used Dart and Flutter for mobile applications. I have experience working with openServer, Jenkins, Nexus. I offer my services with a full understanding of the responsibility for task completion. I understand that working in a team on projects is ahead, and I will be immensely happy if the team is interested in the quality of work and adheres to rationalism."
     },
+    "education": "Education",
+    "faculty": "Faculty of Computer Science and Technology",
+    "cafedra": "Programm engineering",
+    "city": "DonNTU Donetsk",
     "skills": {
         "base": {
             "title": "BASE",

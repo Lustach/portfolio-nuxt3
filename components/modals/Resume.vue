@@ -5,10 +5,12 @@
         <img loading="lazy" src="@/assets/images/times-circle.svg" alt="Close" />
       </button>
       <div class="modal__content">
-        <h3 class="modal__title text-center" data-modal="#modal_resume">Резюме</h3>
+        <h3 class="modal__title text-center" data-modal="#modal_resume">
+          {{ t("resume") }}
+        </h3>
         <div class="timeline">
           <div class="timeline__col timeline__col--left">
-            <h4 class="timeline__title">Коммерческий опыт</h4>
+            <h4 class="timeline__title">{{ t("experience") }}</h4>
             <div v-for="(exp, key) in experienceList" :key="key" class="timeline__item">
               <time class="timeline__date" :datetime="exp.date_start"
                 >{{ exp.date_start }} - <b>{{ exp.date_end }}</b></time
@@ -28,12 +30,12 @@
           </div>
 
           <div class="timeline__col timeline__col--right">
-            <h4 class="timeline__title">Образование</h4>
+            <h4 class="timeline__title">{{ t("education") }}</h4>
 
             <div class="timeline__item">
               <time class="timeline__date" datetime="11-21-2019">2018 - 2022</time>
-              <h5 class="timeline__subtitle">Программная Инженерия</h5>
-              <div class="timeline__position">ДонНТУ г. Донецк</div>
+              <h5 class="timeline__subtitle">{{ t("cafedra") }}</h5>
+              <div class="timeline__position">{{ t("city") }}</div>
             </div>
             <!--            <h4 class="timeline__title">-->
             <!--              Навыки:-->
@@ -99,6 +101,7 @@ import { reactive, inject } from "vue";
 import { useModalsStore } from "@/store/modals";
 const modalStore = useModalsStore();
 const close = modalStore.close;
+const { t, locale } = useI18n();
 type experienceList = {
   date_start: string;
   date_end: string;
@@ -108,37 +111,54 @@ type experienceList = {
 };
 const experienceList: experienceList[] = reactive([
   {
+    date_start: "2022",
+    date_end: "2023",
+    company: "Citadel.one",
+    position: "Vue Front-end developer",
+    description: `Крипто платформа, предоставляющая для пользователя интуитивный UI/UX, аналитические функции, встроенные приложения. А для разработчиков - создание приложений с помощью SDK.`,
+    descriptionen: `Crypto platform that provides the user with an intuitive UI/UX, analytical functions, and built-in applications. And for developers - creating applications using the SDK.`,
+  },
+  {
     date_start: "2021",
     date_end: "2022",
     company: "Trinity Group",
-    position: "Vue Front-end разработчик",
-    description: `Разработка личного кабинета сайта-агреггатора благотворительных фондов(НКО) с нуля с использованием Vue,Vuex,Vue-Router,Element-ui, Cypress. Доработка и разработка лендингов.
+    position: "Vue Front-end developer",
+    description: `Разработка личного кабинета сайта-агреггатора благотворительных фондов(НКО) с нуля с использованием Vue, Vuex, Pinia, Vue-Router, Element-ui, Cypress, vtu, jest. Доработка и разработка лендингов.
           Создание виджета с использованием Typescript, webpack
         `,
+    descriptionen: `Development of a personal account for a website aggregator of charitable foundations (NPOs) from scratch using Vue, Vuex, Pinia, Vue-Router, Element-ui, Cypress, vtu, jest. Finalization and development of landing pages.
+      Creating a widget using Typescript, webpack
+    `,
   },
   {
     date_start: "2020",
     date_end: "2021",
     company: "CraftGroup",
-    position: "Vue Front-end разработчик",
+    position: "Vue Front-end developer",
     description:
       "Создание проектов с нуля, доработка crm с использованием Vue, Vuex, Vue-router Vuetify, Quasar, адаптивная вёрстка проектов с использованием pug, sass, gulp, webpack, bootstrap",
+    descriptionen:
+      "Creation of projects from scratch, modification of crm using Vue, Vuex, Vue-router Vuetify, Quasar, adaptive layout of projects using pug, sass, gulp, webpack, bootstrap",
   },
   {
     date_start: "2020",
     date_end: "2021",
-    company: "Фрилансер",
-    position: "Front-end разработчик",
+    company: "Freelance",
+    position: "Front-end developer",
     description: `Разработка проектов различной сложности. Разработка одностраничных лендингов. Разработка виджетов по поиску автозапчастей. Выполнено полное проектирование проекта с нуля и реализация бизнес-задач по созданию системы подбора автозапчастей. Система предоставляет весь необходимый функционал по удобному подбору по фильтрам, сортировкам, заказам, продажам и поиску запчастей для автомобилей.
-Использованы технологии: Vue,Vuetify, JavaScript, TypeScript.`,
+  Использованы технологии: Vue,Vuetify, JavaScript, TypeScript.`,
+    descriptionen: `Development of projects of varying complexity. Development of one-page landing pages. Development of widgets for searching auto parts. Completed the complete design of the project from scratch and the implementation of business tasks to create a system for selecting auto parts. The system provides all the necessary functionality for convenient selection by filters, sorting, orders, sales and search for spare parts for cars.
+  Technologies used: Vue, Vuetify, JavaScript, TypeScript.`,
   },
   {
     date_start: "2019",
     date_end: "2020",
-    company: "Астелит",
-    position: "Vue Front-end разработчик",
+    company: "Astelit",
+    position: "Vue Front-end developer",
     description: `Создание основного интерфейса CMS системы для автоматизации бизнеса с использованием Vue.js, Vuex, Vue-router, TypeScript. Разработка лендинга с использованием Nuxt.
            Рефакторинг проекта на основе Vuetify. Доработка интерфейса CRM, разработка виджетов для CMS на Vue, TypeScript, Vuetify `,
+    descriptionen: `Creation of the main interface of a CMS system for business automation using Vue.js, Vuex, Vue-router, TypeScript. Landing page development using Nuxt.
+      Refactoring a project based on Vuetify. Improvement of the CRM interface, development of widgets for CMS in Vue, TypeScript, Vuetify`,
   },
 ]);
 const skillList = reactive({
@@ -183,6 +203,10 @@ const skillList = reactive({
     },
   ],
 });
+const projectTitle = (i: number, key: keyof experienceList): string => {
+  const localizedKey = (key + locale.value) as keyof experienceList;
+  return experienceList[i][localizedKey] || experienceList[i][key];
+};
 </script>
 
 <style scoped></style>
