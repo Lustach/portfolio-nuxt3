@@ -16,9 +16,17 @@
         </div>
         <nav class="nav">
           <div class="nav__link--block" :class="{ 'mobile-menu': isMobileMenu }">
-            <button @click="changeLocale" class="nav__link change__lang-button">
-            {{ locale.value == "en" ? "ru" : "en" }}
-            </button>
+            <!-- <button @click="changeLocale" class="nav__link change__lang-button">
+              {{ locale.value == "en" ? "ru" : "en" }}
+            </button> -->
+            <NuxtLink
+              v-for="locale in availableLocales"
+              :key="locale.code"
+              :to="switchLocalePath(locale.code)"
+              @click="changeLocale"
+              class="nav__link change__lang-button"
+              >{{ locale.name }}</NuxtLink
+            >
             <a
               v-for="(item, key) in menu"
               :key="key"
@@ -46,7 +54,7 @@
 <script setup>
 import { deleteBodyOverflow, setBodyOverflow } from "@/composables/useBodyOverflow";
 import { useI18n } from "vue-i18n";
-const { t, setLocale, locale } = useI18n();
+const { t, setLocale, locale, locales } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 const isMobileMenu = ref(false);
 const menu = ref([
@@ -72,8 +80,9 @@ const menu = ref([
   // }
 ]);
 const changeLocale = () => {
+  setLocale(locale.code);
   localStorage.setItem("lang", locale.value == "en" ? "ru" : "en");
-  window.location.reload();
+  // window.location.reload();
 };
 const showMobileMenu = () => {
   if (window.innerWidth <= 767) {
@@ -81,6 +90,9 @@ const showMobileMenu = () => {
     isMobileMenu.value ? setBodyOverflow() : deleteBodyOverflow();
   }
 };
+const availableLocales = computed(() => {
+  return locales.value.filter((i) => i.code !== locale.value);
+});
 </script>
 
 <style scoped lang="scss">

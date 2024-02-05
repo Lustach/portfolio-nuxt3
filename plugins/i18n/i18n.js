@@ -23,10 +23,11 @@ const lang = useLocalStorage('lang')
 console.log(lang)
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: lang.value || 'en',
+  locale: 'en',
   // locale: 'en',
   fallbackLocale: ['en'],
   messages: {
     en,ru
-  }
+  },
+  lazy: true
 }))
